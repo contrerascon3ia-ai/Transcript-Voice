@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transcript Voice - Step Line</title>
+    <!-- Asegúrate de que esta línea coincida con el nombre del archivo -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">🎙️ <span>Transcript Voice</span></div>
+            <p id="status" class="status-badge">Esperando interacción...</p>
+        </header>
+
+        <main class="grid">
+            <section class="card">
+                <div class="tabs">
+                    <button class="tab-btn active" data-tab="file">📁 Subir Archivo</button>
+                    <button class="tab-btn" data-tab="mic">🎤 Grabar</button>
+                </div>
+
+                <div id="fileTab" class="tab-content active">
+                    <div class="drop-zone" id="dropZone">
+                        <input type="file" id="fileInput" accept="audio/*" hidden>
+                        <p>🚀 Arrastra tu audio aquí o haz clic</p>
+                        <small>(Soporta .mp3, .ogg, .wav, .m4a)</small>
+                    </div>
+                    <div id="filePreview" class="hidden preview-box">
+                        <audio id="audioPreview" controls></audio>
+                        <button id="startBtn" class="btn-start">🚀 INICIAR TRANSCRIPCIÓN</button>
+                    </div>
+                </div>
+
+                <div id="micTab" class="tab-content">
+                    <div class="recording-area">
+                        <div class="timer" id="timer">00:00</div>
+                        <button id="recordBtn" class="btn-primary">🔴 Empezar a Grabar</button>
+                    </div>
+                </div>
+
+                <div class="settings">
+                    <label>Modelo:</label>
+                    <select id="modelSelect">
+                        <option value="Xenova/whisper-tiny">Rápido (Tiny)</option>
+                        <option value="Xenova/whisper-base" selected>Equilibrado (Base)</option>
+                    </select>
+                </div>
+            </section>
+
+            <section class="card result-card">
+                <h3>📝 Resultado:</h3>
+                <div id="progressContainer" class="hidden">
+                    <div class="progress-bar"><div id="progressFill"></div></div>
+                    <p id="progressText">Cargando...</p>
+                </div>
+                <div id="output" class="result-box" placeholder="El texto aparecerá aquí..."></div>
+                <div class="actions-row">
+                    <button id="copyBtn" class="btn-secondary">📋 Copiar Texto</button>
+                    <button id="clearBtn" class="btn-danger">🗑️ Limpiar Todo</button>
+                </div>
+            </section>
+        </main>
+
+        <footer class="main-footer">
+            <div class="footer-divider"></div>
+            <div class="footer-container">
+                <div class="footer-left">
+                    <span class="version-tag">v1.0.0</span>
+                    <p>© 2026 <strong>Step Line</strong>. Todos los derechos reservados.</p>
+                </div>
+                <div class="footer-right">
+                    <p>Propiedad intelectual de <span>Step Line</span></p>
+                    <div class="status-dot"></div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script type="module" src="app.js"></script>
+</body>
+</html>
